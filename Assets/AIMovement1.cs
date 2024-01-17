@@ -13,7 +13,7 @@ public class AIMovement1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Player = GameObject.Find("Bob");
     }
 
     // Update is called once per frame
