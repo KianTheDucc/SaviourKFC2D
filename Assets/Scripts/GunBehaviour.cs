@@ -60,6 +60,10 @@ public class GunBehaviour : MonoBehaviour
             GameObject.Find("RatSpawner").GetComponent<RatSpawnerScript>().spawnRate -= spawnIncrement;
         }
     }
+    void OnDisable()
+    {
+        PlayerPrefs.SetFloat("score", playerScore);
+    }
 
 
 }

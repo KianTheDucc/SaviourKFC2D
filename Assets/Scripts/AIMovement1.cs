@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Build.Reporting;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AIMovement1 : MonoBehaviour
 {
@@ -30,5 +34,10 @@ public class AIMovement1 : MonoBehaviour
 
 
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        SceneManager.LoadSceneAsync("Death_Scene");
+        SceneManager.UnloadSceneAsync("Main_Scene");
     }
 }

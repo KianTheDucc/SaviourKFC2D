@@ -7,7 +7,7 @@ public class RatSpawnerScript : MonoBehaviour
     public GameObject Rat;
     public float spawnRate = 5;
     private float timer = 0;
-    public float heightOffset = 90;
+    public float heightOffset = 3000;
     public float playerScore;
 
     // Start is called before the first frame update
