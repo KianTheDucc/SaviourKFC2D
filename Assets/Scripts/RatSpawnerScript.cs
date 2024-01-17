@@ -5,20 +5,26 @@ using UnityEngine;
 public class RatSpawnerScript : MonoBehaviour
 {
     public GameObject Rat;
-    public float spawnRate = 5;
+    public float spawnRate = 2.5f;
     private float timer = 0;
-    public float heightOffset = 3000;
+    public float heightOffset = 5;
     public float playerScore;
+    public Transform[] spawnpoints;
+
+
+
+    
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         spawnRat();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        
         if (timer < spawnRate)
         {
             timer += Time.deltaTime;
@@ -26,6 +32,7 @@ public class RatSpawnerScript : MonoBehaviour
         else
         {
             spawnRat();
+            
             timer = 0;
         }
         
@@ -33,11 +40,19 @@ public class RatSpawnerScript : MonoBehaviour
     }
     void spawnRat()
     {
-        float lowestPoint = transform.position.y - heightOffset;
-        float highestPoint = transform.position.y + heightOffset;
-        float leftmostPoint = transform.position.x - heightOffset;
-        float rightmostPoint = transform.position.x + heightOffset;
+        //float lowestPoint = transform.position.y - heightOffset;
+        //float highestPoint = transform.position.y + heightOffset;
+        //float leftmostPoint = transform.position.x - heightOffset;
+        //float rightmostPoint = transform.position.x + heightOffset;
+        //float RatSpawnX = Random.Range(leftmostPoint, rightmostPoint);
+        //float RatSpawnY = Random.Range(lowestPoint, highestPoint);
+        int randomIndex = Random.Range(0, spawnpoints.Length);
 
-        Instantiate(Rat, new Vector3(Random.Range(leftmostPoint, rightmostPoint), Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        Debug.Log("Rat spawn attempted");
+
+        Instantiate(Rat, spawnpoints[randomIndex].position, transform.rotation);
+
+        
+
     }
 }

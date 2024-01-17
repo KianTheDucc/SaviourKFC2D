@@ -34,4 +34,9 @@ public class NewGame : MonoBehaviour
 
         text.text = $"You Died! Your score was: {playerScore}";
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
 }
