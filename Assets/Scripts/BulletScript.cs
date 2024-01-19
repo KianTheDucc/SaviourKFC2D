@@ -24,10 +24,12 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
 
-            GameObject.Find("Bob").GetComponent<GunBehaviour>().IncrementScore();
             
+            collision.gameObject.GetComponent<RatHealthScript>().health -= 5;
+
+
+
 
             Destroy(this.gameObject);
         }

@@ -13,6 +13,9 @@ public class GunBehaviour : MonoBehaviour
     public GameObject bullet;
     public float power;
     public float spawnIncrement;
+    public float speed;
+    public float ShotDelay = 1f;
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,13 +26,24 @@ public class GunBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            Shoot();
+            if (timer < ShotDelay)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                Shoot();
+
+                timer = 0;
+            }
+
+
         }
 
     }   
-    void Shoot()
+    public void Shoot()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 Direction = mousePos - transform.position;
