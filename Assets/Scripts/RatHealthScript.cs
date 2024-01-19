@@ -16,7 +16,9 @@ public class RatHealthScript : MonoBehaviour
     {
         if (health < 0)
         {
+            GameObject.Find("Bob").GetComponent<GunBehaviour>().IncrementScore();
             Destroy(gameObject);
+            
         }
     }
 }
