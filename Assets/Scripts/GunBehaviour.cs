@@ -16,6 +16,7 @@ public class GunBehaviour : MonoBehaviour
     public float speed;
     public float ShotDelay = 1f;
     public float timer;
+    public float shotDamage;
 
     // Start is called before the first frame update
     void Start()

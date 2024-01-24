@@ -7,11 +7,11 @@ public class BulletScript : MonoBehaviour
 {
     public float playerScore;
     public TextMeshProUGUI text;
-    public float spawnRate;
 
     // Start is called before the first frame update
     void Start()
     {
+
         text = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
     }
 
@@ -26,7 +26,7 @@ public class BulletScript : MonoBehaviour
         {
 
             
-            collision.gameObject.GetComponent<RatHealthScript>().health -= 5;
+            collision.gameObject.GetComponent<RatHealthScript>().health -= GameObject.Find("Bob").GetComponent<GunBehaviour>().shotDamage;
 
 
 

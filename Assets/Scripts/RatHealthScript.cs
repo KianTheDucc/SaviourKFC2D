@@ -5,10 +5,12 @@ using UnityEngine;
 public class RatHealthScript : MonoBehaviour
 {
     public float health;
+    public float randnum;
+    public GameObject Powerup;
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+
     }
 
     // Update is called once per frame
@@ -17,6 +19,14 @@ public class RatHealthScript : MonoBehaviour
         if (health < 0)
         {
             GameObject.Find("Bob").GetComponent<GunBehaviour>().IncrementScore();
+
+            randnum = Random.Range(0, 20);
+
+            if (randnum == 7) 
+            {
+                Instantiate(Powerup, gameObject.transform.position, Quaternion.identity);
+            }
+
             Destroy(gameObject);
             
         }
